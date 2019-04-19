@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css" />
+    <title>{% block title %}Home{% endblock %}</title>
+  </head>
+  <body>
+    <header >
+      <h1>AC5</h1>
+      <nav class="header-nav">
+        <ul>
+          <li>
+            {% if user.is_authenticated %}
+              <a href="{% url 'logout' %}">logout</a>
+            {% else %}
+          </li>
+          <li>
+            <a href="{% url 'login' %}">login</a>
+          </li>
+          <li >
+            <a
+            href="{% url 'signup' %}">signup</a>
+            {% endif %}
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>
